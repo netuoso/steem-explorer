@@ -1,0 +1,28 @@
+if ('<%= @search_result[0] %>' === 'block') {
+	$('#blkPrevious').text('<%= @search_result[1][:previous] %>');
+	$('#blkTimestamp').text('<%= @search_result[1][:timestamp] %>');
+	$('#blkWitness').text('<%= @search_result[1][:witness] %>');
+	$('#blkTransactionMerkelRoot').text('<%= @search_result[1][:transaction_merkel_root] || "" %>');
+	$('#blkExtensions').text('<%= @search_result[1][:extensions] %>');
+	$('#blkWitnessSignature').text('<%= @search_result[1][:witness_signature] %>');
+	$('#blkTransactions')[0].innerHTML = '<%= escape_javascript(@search_result[1][:transactions])&.html_safe %>';
+	$('#blkBlockId').text('<%= @search_result[1][:block_id] %>');
+	$('#blkSigningKey').text('<%= @search_result[1][:signing_key] %>');
+	$('#blkTransactionIds')[0].innerHTML = '<%= escape_javascript(@search_result[1][:transaction_ids]&.join("<br/>"))&.html_safe %>';
+	$('.transactionbox').hide();
+	$('.blockbox').show();
+} else if ( '<%= @search_result[0] %>' === 'transaction') {
+	$('#refBlockNum').text('<%= @search_result[1][:ref_block_num] %>');
+	$('#refBlockPrefix').text('<%= @search_result[1][:ref_block_prefix] %>');
+	$('#expiration').text('<%= @search_result[1][:expiration] %>');
+	$('#operations')[0].innerHTML = '<%= escape_javascript(@search_result[1][:operations])&.html_safe %>';
+	$('#extensions').text('<%= @search_result[1][:extensions] %>');
+	$('#signatures')[0].innerHTML = '<%= @search_result[1][:signatures]&.html_safe %>';
+	$('#transactionId').text('<%= @search_result[1][:transaction_id] %>');
+	$('#blockNum').text('<%= @search_result[1][:block_num] %>');
+	$('#transactionNum').text('<%= @search_result[1][:transaction_num] %>');
+	$('.blockbox').hide();
+	$('.transactionbox').show();
+}
+
+$('body').spin(false);

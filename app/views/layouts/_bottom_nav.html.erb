@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#" data-toggle="modal" data-target="#aboutModal">About</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#tosModal">Terms & Conditions</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-center">
+        <li><a href="#" id="blockNumLink">Current Block: <span id="currentBlock">0</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>Blockchain:</a></li>
+        <li class="<%= @chain == 'steem' ? 'active' : nil %>"><a href="/steem">Steem</a></li>
+        <li class="<%= @chain == 'golos' ? 'active' : nil %>"><a href="/golos">Golos</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

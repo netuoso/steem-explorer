@@ -1,0 +1,30 @@
+$('#postEarningsTable')[0].innerHTML = '<%= escape_javascript(@search_result[1][:discussions_html])&.html_safe %>';
+$('#generatedTable').tablesorter();
+
+var chart = $('#postEarningsChart')[0];
+try {
+	Plotly.deleteTraces('postEarningsChart', 0);
+} catch(e) {
+	console.log('No traces exist');
+}
+Plotly.plot(chart, [{
+		x: <%= raw(@search_result[1][:votes][:dates].reverse) %>,
+		y: <%= raw(@search_result[1][:votes][:payouts].reverse) %>,
+		type: 'scatter'
+	}],
+	{
+	 	title: 'Post Earnings for Past 30 Days',
+		xaxis: {
+	  	tickvals: <%= raw(((Date.today-30.days)..Date.today).map{|x|x.strftime('%Y-%m-%d')}) %>,
+      ticktext: <%= raw(((Date.today-30.days)..Date.today).map{|x|x.strftime('%Y-%m-%d')}) %>
+    },
+		yaxis: {
+	  	tickvals: <%= raw((1..1000).step(@search_result[1][:votes][:payouts].map(&:to_i).max/10).to_a) %>,
+      ticktext: <%= raw((1..1000).step(@search_result[1][:votes][:payouts].map(&:to_i).max/10).to_a.collect{|x|"#{x} SBD"}) %>
+    },
+	  autosize: false
+	}
+);
+
+$('.postearningsbox').show();
+$('body').spin(false);

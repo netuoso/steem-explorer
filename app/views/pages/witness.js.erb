@@ -1,0 +1,41 @@
+var chart = $('#postEarningsChart')[0];
+// Plotly.plot(chart, [{
+// 		x: <%= raw(@search_result[1][:votes][:dates].reverse) %>,
+// 		y: <%= raw(@search_result[1][:votes][:payouts].reverse) %>,
+// 		type: 'scatter'
+// 	}],
+// 	{
+// 	 	title: 'Post Earnings for Past 30 Days',
+// 		xaxis: {
+// 	  	tickvals: <%= raw(@search_result[1][:votes][:dates].reverse) %>,
+//       ticktext: <%= raw(@search_result[1][:votes][:dates].reverse) %>
+//     },
+// 		yaxis: {
+// 	  	tickvals: <%= raw(@search_result[1][:votes][:payouts].reverse) %>,
+//       ticktext: <%= raw(@search_result[1][:votes][:payouts].reverse.collect{|x|"#{x} SBD"}) %>
+//     },
+// 	  autosize: false
+// 	}
+// );
+
+Plotly.plot(chart, [{
+		x: [1,2,3],
+		y: [1,2,3],
+		type: 'scatter'
+	}],
+	{
+	 	title: 'Witness Votes for Past 30 Days',
+		xaxis: {
+	  	tickvals: [1,2,3],
+      ticktext: [1,2,3]
+    },
+		yaxis: {
+	  	tickvals: [1,2,3],
+      ticktext: [1,2,3]
+    },
+	  autosize: false
+	}
+);
+
+$('.witnesshistorybox').show();
+$('body').spin(false);

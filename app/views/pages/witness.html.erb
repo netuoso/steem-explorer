@@ -1,0 +1,25 @@
+<div id="particles">
+	<div id="intro">
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="header">
+		<h1>Search by Witness</h1>
+	</div>
+
+	<div class="jumbotron searchbox">
+		<%= form_tag '/witness', class: 'form-inline', remote: true do |f| %>
+			<%= text_field_tag :username, nil, placeholder: 'Username', class: 'form-control', tabindex: 1, autofocus: true %>
+			<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+			<%= submit_tag "Search", class: 'btn btn-default', onclick: '$("body").spin();' %>
+		<% end %>
+	</div>
+	<div class="jumbotron resultsbox witnesshistorybox">
+		<div class="resultsclose"><a onClick="$('.witnesshistorybox').hide();">&#x2573</a></div>
+		<div class="container">
+			<h3>Witness Votes</h3>
+			<div id="postEarningsChart"></div>
+		</div>
+	</div>
+</div>

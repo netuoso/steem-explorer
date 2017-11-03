@@ -1,0 +1,166 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require jquery-tablesorter/theme.bootstrap
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+}
+
+#postEarningsChart {
+  width: 100% !important;
+	height: 500px;
+}
+
+.postearningsbox {
+	width: 100% !important;
+  width: calc(70% - 1em) !important;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+#postEarningsTable {
+	table tbody tr {
+		& th, & td {
+			text-align: center;
+		}
+		&.paid {
+			background-color: #91FF92;
+		}
+		&.unpaid {
+			background-color: #F0F0F0;
+		}
+	}
+}
+
+body {
+	padding-top: 60px;
+
+  #rpcNodes {
+	  font-size: 18px;
+  	& th,td {
+  		padding: 0 10px;
+  	}
+  }
+
+  #particles {
+  	top: 30%;
+  	width: 100%;
+  	height: 60%;
+  	position: absolute;
+  }
+
+  #rpcNodesModal {
+  	width: 900px;
+  	& .modal-content {
+  		width: 116%;
+  	}
+  }
+
+	& .postearnings {
+	  display: none;
+	  position: relative;
+	  text-align: center;
+	  background-color: rgba(255,255,255,1);
+	  top: 50%;
+	}
+
+	&.pages-index, &.pages-earnings, &.pages-witness {
+		background-image: url('<%= image_url("repeating-dark.jpg") %>');
+		// background-color: rgba(0,0,0,1);
+		background-size: 100% 1100px !important;
+
+		& .header {
+			color: #fff;
+			text-align: center;
+			text-shadow: 5px 5px #000;
+			padding-top: 30px;
+			padding-bottom: 20px;
+		}
+
+		& .searchbox {
+		  position: absolute;
+		  text-align: center;
+		  background-color: rgba(255,255,255,.8);
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%,-60%);
+		  width: 100%;
+		  min-width: 250px;
+		  max-width: 800px;
+		}
+
+		& .resultsbox {
+		  display: none;
+		  position: relative;
+		  text-align: center;
+		  background-color: rgba(255,255,255,1);
+		  top: 50%;
+
+		  & .resultsclose {
+		  	position: absolute;
+		  	top: 10px;
+		  	right: 15px;
+		  	font-weight: 700;
+		  	cursor: pointer;
+		  	color: #0E00E2;
+		  }
+		}
+	}
+}
+
+// Credit to @roadscape from Steemd
+
+.hash3 {
+  margin-bottom: 0;
+  border: 1px solid #CCC;
+  font-size: 12px;
+  margin: 0;
+  background: white;
+}
+
+.hash3 .idx {
+  padding-left: 8px;
+  text-align: right;
+  background: #EEE;
+}
+
+table {
+	display: block;
+}
+
+table.ultra-condensed > tbody > tr > th,
+table.ultra-condensed > tbody > tr > td {
+  padding: 2px 4px;
+  font-size: 96%;
+}
+
+table.ultra-condensed > tfoot > tr > th,
+table.ultra-condensed > tfoot > tr > td {
+  padding: 2px 4px;
+  font-size: 96%;
+}
+
+table.ultra-condensed > * > tr > th,
+table.ultra-condensed > * > tr > td {
+  border-color: #EEE;
+}

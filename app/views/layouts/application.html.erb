@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SteemExplorer</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="<%= controller_name %>-<%= action_name %>">
+	  <%= render 'layouts/top_nav' %>
+
+    <%= yield %>
+
+    <%= render 'layouts/about_modal' %>
+    <%= render 'layouts/tos_modal' %>
+    <%= render 'layouts/rpc_nodes_modal' %>
+
+	  <%= render 'layouts/bottom_nav' %>
+  </body>
+</html>
