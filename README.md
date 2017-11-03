@@ -26,7 +26,7 @@ Users can also search by username to see a particular user's post payouts for th
 Feel free to fork this repo, make necessary changes, then provide a fully documented pull request. I will monitor the repository and merge all useful PRs.
 
 # Screenshots
-
+![](https://i.imgur.com/aXKh1y4.png)
 
 # License
 This project is *protected* under the [WTFPL](LICENSE.md).
